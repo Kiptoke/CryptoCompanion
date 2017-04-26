@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    
+    <title>Conversions</title>
+
+    <!-- here be the CSS sheet -->
+    <link href="Crypto CSS Sheet.css" rel="stylesheet" type="text/css">
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+  </head>
+  <body>
+    
+    <!-- Here is the top header -->
+    <header>
+        <img src="photos\logo.png" class="img-rounded" style="width:40%">
+    </header>
+
+    <!-- TESTING: navbar test -->
+
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <ul class="nav navbar-nav">
+                <li><a href="index.html">Home</a></li>
+                <li class="dropdown">
+
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Ciphers
+                    <span class="caret"></span></a>
+
+                    <ul class="dropdown-menu">
+                        <li><a href="atbash.html">Atbash Cipher</a></li>
+                        <li><a href="caesar.html">Caesar Cipher</a></li>
+                        <li><a href="subsitution.html">Simple Subsitution Cipher</a></li>
+                        <li><a href="vigenere.html">Vigenère Cipher</a></li>
+                    </ul>
+                </li>
+                <li><a href="conversions.html">Conversions</a></li>
+                <li><a href="resources.html">Resources</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- here be the main text -->
+    <section>
+        <h1>Conversions</h1>
+        <hr>
+        
+        <!-- Decimal System -->
+
+        <div class="row">
+            <div class="col-sm-6">
+                <h3>Decimal Counting</h3>
+                <p>The decimal - or base 10 system - of counting is the most natural and intuitive form of counting to regular people. Each place corresponds to some unit of a power of 10. For instance, the first place corresponds to the 10<sup>0</sup><sub>th</sub> unit, or the ones place, as we would call it by. The second place corresponds to 10<sup>1</sup><sub>th</sub> unit, or the tenths place, so on and so forth. Take, for instance, the number 1,729. From this we can determine the values of the numbers that there is a 1 in the thousands place, 7 in the hundreds, 2 in the tens, and 9 in the ones. In decimal, only the digits 0 through 9 can be used.</p>
+            </div>
+            <div class="col-sm-6">
+                <pre><b>The Decimal System</b>: 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20<br><b>Places in Decimal</b>: 10000, 1000, 100, 10, 1</pre>
+                <h3>Decimal Place-Value Chart</h3>
+                <table>
+                    <tr>
+                        <td><b>Values</b></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td><b>Exponent Place Notation</b></td>
+                        <td>10<sup>4</sup></td>
+                        <td>10<sup>3</sup></td>
+                        <td>10<sup>2</sup></td>
+                        <td>10<sup>1</sup></td>
+                        <td>10<sup>0</sup></td>
+                    </tr>
+                    <tr>
+                        <td><b>Decimal Place Notation</b></td>
+                        <td>10000</td>
+                        <td>1000</td>
+                        <td>100</td>
+                        <td>10</td>
+                        <td>1</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <hr>
+
+        <!-- Binary System -->
+
+        <div class="row">
+            <div class="col-sm-6">
+                <h3>Binary Counting</h3>
+                <p>Binary counting, also known as the base 2 system, is the most basic counting system, and is the most easily interpreted by computers. Binary is used in computers since it corresponds the most to how electricity and the hardware function: Inputs can only ever be on an ON (1) or OFF (0) basis. Binary works by having each place correspond to a power of 2, instead of 10 like in decimal. So, the second place correponds to the 2<sup>1</sup><sub>th</sub> unit, or the two's place. So, the decimal number 42 can be represented as 101010, where there is a 1 in the thirty-seconds, 1 in the eights, and 1 in the twos. Adding them together, 32 + 8 + 2 = 42. Only the digits 1 and 0 can be used.</p>
+            </div>
+            <div class="col-sm-6">
+                <pre><b>The Binary System</b>: 0 1 10 11 100 101 110 111 1000 1001 1011<br>1100 1101 1110 1111 10000 10001 10010 10011 10100<br><b>Places in Binary</b>: 16, 8, 4, 2, 1</pre>
+                <h3>Binary Place-Value Chart</h3>
+                <table>
+                    <tr>
+                        <td><b>Values</b></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td><b>Exponent Place Notation</b></td>
+                        <td>2<sup>4</sup></td>
+                        <td>2<sup>3</sup></td>
+                        <td>2<sup>2</sup></td>
+                        <td>2<sup>1</sup></td>
+                        <td>2<sup>0</sup></td>
+                    </tr>
+                    <tr>
+                        <td><b>Binary Place Notation</b></td>
+                        <td>16</td>
+                        <td>8</td>
+                        <td>4</td>
+                        <td>2</td>
+                        <td>1</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <hr>
+
+        <!-- Hexadecimal System -->
+
+        <div class="row">
+            <div class="col-sm-6">
+                <h3>Hexadecimal Counting</h3>
+                <p>The hexadecimal system - or base 16 system - of counting is the most compact system of the three, being able to store a large amount of data within a small amount of units. Each place corresponds to a power of 16. For instance, the second place corresponds to 16<sup>1</sup><sub>th</sub> unit, or the sixteenths. Since we don't have more than 10 numerical digits to use, but we need to represent 16 digits, hexadecimal uses the letters A, B, C, D, E, and F to represent 10, 11, 12, 13, 14, and 15 in decimal. When hexadecimal shows 10, it actually represents the decimal 16, since the 1 is in the sixteens place. This allows hexadecimal to store large numbers in a small amount of characters. The decimal 13579 is represented by the hexadecimal 350B, where there is a 3 in the 4096ths, 5 in the 256ths, and B (11) in the ones.</p>
+                <pre>3 * 4096 = 12288<br>5 * 256 = 1280<br>12288 + 1280 + 11 = 13579</pre>
+            </div>
+            <div class="col-sm-6">
+                <pre><b>The Hexadecimal System</b>: 0 1 2 3 4 5 6 7 8 9 A B C D E F 10 11 12 13 14<br><b>Places in Hecadecimal</b>: 65536, 4096, 256, 16, 1</pre>
+                <h3>Hexadecimal Place-Value Chart</h3>
+                <table>
+                    <tr>
+                        <td><b>Values</b></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td><b>Exponent Place Notation</b></td>
+                        <td>16<sup>4</sup></td>
+                        <td>16<sup>3</sup></td>
+                        <td>16<sup>2</sup></td>
+                        <td>16<sup>1</sup></td>
+                        <td>16<sup>0</sup></td>
+                    </tr>
+                    <tr>
+                        <td><b>Hexadecimal Place Notation</b></td>
+                        <td>65536</td>
+                        <td>4096</td>
+                        <td>256</td>
+                        <td>16</td>
+                        <td>1</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <hr>
+
+        <!-- System Conversions -->
+
+        <h3>Converting Between The Systems</h3>
+
+        <p>While there are methods to convert directly between each system, it's often easier for beginners to use the decimal system as an intermediary step in conversions.</p>
+        <br>
+        <p>To convert from a number in any base to the decimal system (base 10), you should first divide the number up into its individual places values. For an example, we will attempt to convert from binary into hexadecimal. Let's use a previous example, the binary digit 101010. After dividing the number into individual places, take the position (n) of the digit in the number, starting with the furthest right digit. That number represents the nth exponent of whichever base we are in so that each place is b<sup>n-1</sup> where b is the base number and n is the digit's position. The digit's position is being subtracted by one since our furthest right digit must always be 1, i.e. an exponent of 0. In this case, we are in base 2 right now.</p>
+        <table>
+            <tr>
+                <td><b>Binary Values</b></td>
+                <td>1</td>
+                <td>0</td>
+                <td>1</td>
+                <td>0</td>
+                <td>1</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td><b>Exponent Place Notation</b></td>
+                <td>2<sup>5</sup></td>
+                <td>2<sup>4</sup></td>
+                <td>2<sup>3</sup></td>
+                <td>2<sup>2</sup></td>
+                <td>2<sup>1</sup></td>
+                <td>2<sup>0</sup></td>
+            </tr>
+            <tr>
+                <td><b>Decimal Place Notation</b></td>
+                <td>32</td>
+                <td>16</td>
+                <td>8</td>
+                <td>4</td>
+                <td>2</td>
+                <td>1</td>
+            </tr>
+        </table>
+        <br>
+        <p>Take each number from the decimal place notation and multiply it with the values in the binary digit. Afterwards, add all of the results up. In this case, we do:
+        <pre>1 * 32 = 32<br>0 * 16 = 0<br>1 * 8 = 8<br>0 * 4 = 0<br>1 * 2 = 2<br>0 * 1 = 0<br>32 + 8 + 2 = <b>42</b></pre>
+        <p>This method is effective for all bases and all numbers. Generalizing on the method, use b<sup>n-1</sup> to determine the unit, with b as the base being converted and n as the digit's position. For instnace, the fourth place of decimal is 10<sup>3</sup>, or 1000; the seventh place of hexadecimal is 16<sup>6</sup>, or 16777216; the fifth place of octal is 8<sup>4</sup>, or 4096; etc.</p>
+        <br>
+        <p>Converting from decimal into another system is rather easy as well. We simply take the method we use to convert into decimal and also some mathematical reasoning. Say we want to convert our 42 into hexadecimal. First, we write down the place-value chart for the system we want to convert into. In this case, we want to convert into base 16.
+        <table>
+            <tr>
+                <td><b>Values</b></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><b>Exponent Place Notation</b></td>
+                <td>16<sup>2</sup></td>
+                <td>16<sup>1</sup></td>
+                <td>16<sup>0</sup></td>
+            </tr>
+            <tr>
+                <td><b>Hexadecimal Place Notation</b></td>
+                <td>256</td>
+                <td>16</td>
+                <td>1</td>
+            </tr>
+        </table>
+        <br>
+        <p>Find the largest digit we can subtract by and still have a positive number left. 42 cannot be subtracted by 256 and still be positive, so the value in the 256ths place is 0. 42 can be subtracted by 16. Put a 1 in the 16ths place. We now have 26. However, 26 can still be subtracted by 16. No worries, just subtract by 16 again and add 1 to the 16ths place. The 16ths place will now have a 2 in it, and we now have 10. Repeat the same steps for the 1s digit - 10 will be subtracted 10 times. Therefore, a (which stands for 10) will go in the 1s digit. We now have zero, and we are done. Remove all leading zeros.</p>
+        <table>
+            <tr>
+                <td><b>Values</b></td>
+                <td>0</td>
+                <td>2</td>
+                <td>a</td>
+            </tr>
+            <tr>
+                <td><b>Exponent Place Notation</b></td>
+                <td>16<sup>2</sup></td>
+                <td>16<sup>1</sup></td>
+                <td>16<sup>0</sup></td>
+            </tr>
+            <tr>
+                <td><b>Hexadecimal Place Notation</b></td>
+                <td>256</td>
+                <td>16</td>
+                <td>1</td>
+            </tr>
+        </table>
+        <br>
+        <p>We've now just converted 42 into hexadecimal. The decimal digit 42 is 2a in hexadecimal. Again, this method can be generalized to any base, just use the corresponding place-value chart.</p>
+        <hr>
+
+        <!-- Examples -->
+
+        <h3>Conversion Practice</h3>
+
+        <pre>
+<b>Decimal and Binary</b>
+
+<b>Example 1:</b> Convert 150 into Binary
+<b>Example 2:</b> Convert 1010100 into Decimal
+
+<b>Decimal and Hexadecimal</b>
+
+<b>Example 3:</b> Convert 1984 into Hexadecimal
+<b>Example 4:</b> Convert 6b into Decimal
+
+<b>Hexadecimal and Binary</b>
+
+<b>Example 5:</b> Convert ab into Binary
+<b>Example 6:</b> Convert 11101110 into Hexadecimal
+
+<b>Challenge:</b> 154 is a digit in Octal (base 8). Using our methods, you should be able to convert this into Hexadecimal.</pre>
+
+        <div class="panel-group">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" href="#collapse1">Click Here for the Answers</a>
+                    </h4>
+                </div>
+                <div id="collapse1" class="panel-collapse collapse">
+                    <div class="panel-body"><b>Example 1:</b> 10010110</div>
+                    <div class="panel-body"><b>Example 2:</b> 84</div>
+                    <div class="panel-body"><b>Example 3:</b> 7c0</div>
+                    <div class="panel-body"><b>Example 4:</b> 107</div>
+                    <div class="panel-body"><b>Example 5:</b> 10101011</div>
+                    <div class="panel-body"><b>Example 6:</b> ee</div>
+                    <div class="panel-body"><b>Challenge:</b> 6c</div>
+                </div>
+            </div>
+        </div>
+        <h3>Extras</h3>
+        <hr>
+        <p>As a special treat, enjoy this video about number systems, character encoding, and YouTube's Video ID system by Tom Scott:</p>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/gocwRvLhDf8" frameborder="0" allowfullscreen></iframe>
+
+    </section>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+  </body>
+</html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    
+    <title>Atbash Cipher</title>
+
+    <!-- here be the CSS sheet -->
+    <link href="Crypto CSS Sheet.css" rel="stylesheet" type="text/css">
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+  </head>
+  <body>
+    
+    <!-- Here is the top header -->
+    <header>
+        <img src="photos\logo.png" class="img-rounded" style="width:40%">
+    </header>
+
+    <!-- TESTING: navbar test -->
+
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <ul class="nav navbar-nav">
+                <li><a href="index.html">Home</a></li>
+                <li class="dropdown">
+
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Ciphers
+                    <span class="caret"></span></a>
+
+                    <ul class="dropdown-menu">
+                        <li><a href="atbash.html">Atbash Cipher</a></li>
+                        <li><a href="caesar.html">Caesar Cipher</a></li>
+                        <li><a href="subsitution.html">Simple Subsitution Cipher</a></li>
+                        <li><a href="vigenere.html">Vigenère Cipher</a></li>
+                    </ul>
+                </li>
+                <li><a href="conversions.html">Conversions</a></li>
+                <li><a href="resources.html">Resources</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- here be the main text -->
+    <section>
+        <h1>Atbash</h1>
+        <hr>
+        <!-- here be text -->
+        <div class="row">
+            <div class="col-sm-6">
+                <p>The <b>Atbash Cipher</b> is an incredibly simplistic cipher, where each letter in the alphabet is replaced with the "opposite" letter in the alphabet. It is considered a <i>simple subsitution</i> cipher - simple subsitution ciphers are described as ciphers where single letters are replaced with other single letters. The Atbash cipher was originally made to work with the Hebrew alphabet, but can be modified to work with any alphabet with a limited amount of characters.</p>
+                <hr>
+                <h4><b>Encoding Atbash</b></h4>
+                <p>Encoding for the Atbash cipher is incredibly simple. Replace each letter in the plaintext - the message to be encoded - with the letter in the alphabet directly opposite of it. For instance, the letter <b>A</b> is replaced with <b>Z</b>, <b>B</b> is replaced with <b>Y</b>, etc. Use the table to help you in encoding a message.</p>
+                <h4><b>Decoding Atbash</b></h4>
+                <p>Decoding Atbash is also incredibly easy, simply use the same method of encryption to decrypt the message.</p>
+                <h4><b>Breaking Atbash</b></h4>
+                <p>Breaking the Atbash is relatively trivial. If you know the Atbash cipher has been used, you can easily decrypt the message. If you don't know that Atbash has been used, try to decrypt the first few letters. If they make sense, continue to decrypt the message. If they don't, then Atbash hasn't been used. This is why we consider Atbash an incredibly <i>weak</i> cryptographic method, since it is easily broken in a short amount of time. It provides little to no security.</p>
+            </div>
+
+            <!-- here be an explanitory photo -->
+            <div class="col-sm-6" >
+                <h4>Atbash Table</h4>
+                <pre><b>Plaintext</b>:  a b c d e f g h i j k l m n o p q r s t u v w x y z<br><b>Ciphertext</b>: Z Y X W V U T S R Q P O N M L K J I H G F E D C B A</pre>
+                <br>
+                <h4>Atbash Example</h4>
+                <pre><b>Plaintext</b>:  CRYPTOLOGY IS COOL<br><b>Ciphertext</b>: XIBKGLOLTB RH XLLO</pre>
+            </div>
+        </div>
+
+        <!-- here be some fun examples -->
+
+        <hr>
+        <h3>Practice with Atbash</h3>
+
+        <!-- formatting here is bad I dunno how to fix it -->
+
+        <pre>
+<b>Example 1:</b> GSV JFRXP YILDM ULC QFNKH LEVI GSV OZAB WLT
+<b>Example 2:</b> BLF XVIGZRMOB ZIV WVGVINRMVW
+<b>Example 3:</b> THE ATTACK BEGINS ON THE BEACH AT NOON
+<b>Example 4:</b> THE ATBASH CIPHER IS SIMPLE
+<b>Paragraph:</b> <p>GDVOEV ELRXVH DVIV HSLFGRMT RM ZMTVI, ZMW GSVB DVIV ZOO ZORPV. ML JFVHGRLM, MLD, DSZG SZW SZKKVMVW GL GSV UZXVH LU GSV KRTH.<br>GSV XIVZGFIVH LFGHRWV OLLPVW UILN KRT GL NZM, ZMW UILN NZM GL KRT, ZMW UILN KRT GL NZM ZTZRM;<br>YFG ZOIVZWB RG DZH RNKLHHRYOV GL HZB DSRXS DZH DSRXS.</p></pre>
+        
+        <div class="panel-group">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" href="#collapse1">Click Here for the Answers</a>
+                    </h4>
+                </div>
+                <div id="collapse1" class="panel-collapse collapse">
+                    <div class="panel-body"><b>Example 1:</b> THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG</div>
+                    <div class="panel-body"><b>Example 2:</b> YOU CERTAINLY ARE DETERMINED</div>
+                    <div class="panel-body"><b>Example 3:</b> GSV ZGGZXP YVTRMH LM GSV YVZXS ZG MLLM</div>
+                    <div class="panel-body"><b>Example 4:</b> GSV ZGYZHS XRKSVI RH HRNKOV</div>
+                    <div class="panel-body"><b>Paragraph:</b> TWELVE VOICES WERE SHOUTING IN ANGER, AND THEY WERE ALL ALIKE. NO QUESTION, NOW, WHAT HAD HAPPENED TO THE FACES OF THE PIGS. THE CREATURES OUTSIDE LOOKED FROM PIG TO MAN, AND FROM MAN TO PIG, AND FROM PIG TO MAN AGAIN; BUT ALREADY IT WAS IMPOSSIBLE TO SAY WHICH WAS WHICH.<br>- <i>Animal Farm</i>, George Orwell</div>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <h3>Python Application of Atbash</h3>
+        <a href="programs\atbash.py" type="button" class="btn btn-primary btn-block">Atbash Python 3 File</a>
+    </section>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js" download></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+  </body>
+</html>
