@@ -19,7 +19,7 @@
     
     <!-- Here is the top header -->
     <header>
-        <img src="photos\logo.png" class="img-rounded" style="width:40%">
+        <img src="photos/logo.png" class="img-rounded" style="width:40%">
     </header>
 
     <!-- TESTING: navbar test -->
@@ -58,19 +58,39 @@
         <!-- here be text -->
         <div class="row">
             <div class="col-sm-6">
-                <p>The <b>One Time Pad Cipher</b> has an introduction here.</p>
+                <p>The <b>One Time Pad</b> is not a cipher, but in fact is just a large collection of keys. These keys can be used in the encryption and decryption of messages, often using a Vigenère or modular addition method of encryption. The "pad" refers to a real pad of paper - each with an individual, unique key. "One time" refers to the fact that each of these papers would be used once - and only once. The only catch with the one time pad is that each key must be totally randomized, and the message sent using the key must be as long or shorter than the key - it cannot be longer.</p>
                 <hr>
-                <h4><b>Encoding One Time Pad</b></h4>
+                <h4><b>Encoding With a One Time Pad</b></h4>
+                <p><b>The Vigenère Method:</b> Encoding a message using a one time pad is no different than using a normal keyword. Just follow the same rules as applied when encoding with the <a href="vigenere.html">Vigenère cipher</a>.</p>
+                <p><b>The Modular Addition Method:</b> Encoding a message using this method is incredibly easy after learning about modulo and modular arithmetic. It simply consists of four steps:</p>
+                <ol>
+                    <li>Change each letter of the plaintext into its corresponding place in the alphabet. For instance, A = 1, B = 2, C = 3, and so on. Do the same for the letters of the key.</li>
+                    <ul>
+                        <li><b style="bg-info">Note:</b> It is common practice to actually begin the alphabet at 0, as in A = 0, B = 1, C = 2, etc. For simplicity, we will not be using this method.</li>
+                    </ul>
+                    <li>Taking the numbers given from the plaintext, add the numerical values given by the key to them.</li>
+                    <li>Change those numbers into their resulting letters. This is your encoded text.</li>
+                </ol>
+                <p>Here is an example of encryption with the message "CRYPTO" and the key "HARUEW".</p>
+                <pre>
+<b>Plaintext:</b>     C      R      Y      P      T      O  
+<b>Plaintext:</b>  3 (C) 18 (R) 25 (Y) 16 (P) 20 (T) 15 (O) 
+<b>Key:</b>        8 (H)  1 (A) 18 (R) 21 (U)  5 (E) 23 (W) 
+<b>Addition:</b>  11 (K) 19 (S) 43 ( ) 37 ( ) 25 (Y) 38 ( )
+<b>Modulo 26:</b> 11 (K) 19 (S) 17 (Q) 11 (K) 25 (Y) 12 (L) 
+<b>Ciphertext:</b>    K      S      Q      K      Y      L </pre>
+                <h4><b>Decoding With a One Time Pad</b></h4>
                 <p></p>
-                <h4><b>Decoding One Time Pad</b></h4>
+                <h4><b>Why Is The One Time Pad Special?</b></h4>
                 <p></p>
-                <h4><b>Breaking One Time Pad</b></h4>
+                <h4><b>So Why Don't We All Use the One Time Pad?</b></h4>
                 <p></p>
             </div>
 
             <!-- here be an explanitory photo -->
             <div class="col-sm-6" >
-                
+                <h4>Example of a One Time Pad Key</h4>
+                <img src="photos/one time pad.png" style="width:100%">
             </div>
         </div>
         
