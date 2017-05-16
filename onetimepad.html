@@ -57,48 +57,51 @@
         <hr>
         <!-- here be text -->
         <div class="row">
-            <div class="col-sm-6">
-                <p>The <b>One Time Pad</b> is not a cipher, but in fact is just a large collection of keys. These keys can be used in the encryption and decryption of messages, often using a Vigenère or modular addition method of encryption. The "pad" refers to a real pad of paper - each with an individual, unique key. "One time" refers to the fact that each of these papers would be used once - and only once. The only catch with the one time pad is that each key must be totally randomized, and the message sent using the key must be as long or shorter than the key - it cannot be longer.</p>
-                <hr>
-                <h4><b>Encoding With a One Time Pad</b></h4>
-                <p><b>The Vigenère Method:</b> Encoding a message using a one time pad is no different than using a normal keyword. Just follow the same rules as applied when encoding with the <a href="vigenere.html">Vigenère cipher</a>.</p>
-                <p><b>The Modular Addition Method:</b> Encoding a message using this method is incredibly easy after learning about modulo and modular arithmetic. It simply consists of four steps:</p>
-                <ol>
-                    <li>Change each letter of the plaintext into its corresponding place in the alphabet. For instance, A = 1, B = 2, C = 3, and so on. Do the same for the letters of the key.</li>
-                    <ul>
-                        <li><b style="bg-info">Note:</b> It is common practice to actually begin the alphabet at 0, as in A = 0, B = 1, C = 2, etc. For simplicity, we will not be using this method.</li>
-                    </ul>
-                    <li>Taking the numbers given from the plaintext, add the numerical values given by the key to them.</li>
-                    <li>Find the value of the number mod 26. For our purposes, think of <b>modular arithmetic</b> as division with remainders. If we have a value x mod y, we divide x/y, and then the remainder of the problem is the mod. However, since in our case, no value will be above 52, the only thing we will have to do is subtract any number that equals or is greater than 26 by 26.</li>
-                    <li>Change those numbers into their resulting letters. This is your encoded text.</li>
-                </ol>
-                <p>Here is an example of encryption with the message "CRYPTO" and the key "HARUEW".</p>
-                <pre>
+            <p>The <b>One Time Pad</b> is not a cipher, but in fact is just a large collection of keys. These keys can be used in the encryption and decryption of messages, often using a Vigenère or modular addition method of encryption. The "pad" refers to a real pad of paper - each with an individual, unique key. "One time" refers to the fact that each of these papers would be used once - and only once. The only catch with the one time pad is that each key must be totally randomized, and the message sent using the key must be as long or shorter than the key - it cannot be longer. It was independently developed throughout the late 19th and early 20th centuries by Frank Miller and Gilbert Vernam.</p>
+            <hr>
+            <h4><b>Encoding With a One Time Pad</b></h4>
+            <p><b>The Vigenère Method:</b> Encoding a message using a one time pad is no different than using a normal keyword. Just follow the same rules as applied when encoding with the <a href="vigenere.html">Vigenère cipher</a>.</p>
+            <p><b>The Modular Addition Method:</b> Encoding a message using this method is incredibly easy after learning about modulo and modular arithmetic. It simply consists of four steps:</p>
+            <ol>
+                <li>Change each letter of the plaintext into its corresponding place in the alphabet. For instance, A = 1, B = 2, C = 3, and so on. Do the same for the letters of the key.</li>
+                <ul>
+                    <li><b class="bg-info">Note:</b> It is common practice to actually begin the alphabet at 0, as in A = 0, B = 1, C = 2, etc. For simplicity, we will not be using this method.</li>
+                </ul>
+                <li>Taking the numbers given from the plaintext, add the numerical values given by the key to them.</li>
+                <li>Find the value of the number mod 26. For our purposes, think of <b>modular arithmetic</b> as division with remainders. If we have a value x mod y, we divide x/y, and then the remainder of the problem is the mod. However, since in our case, no value will be above 52, the only thing we will have to do is subtract any number that equals or is greater than 26 by 26.</li>
+                <li>Change those numbers into their resulting letters. This is your encoded text.</li>
+            </ol>
+            <p>Here is an example of encryption with the message "CRYPTO" and the key "HARUEW".</p>
+            <pre style="width:35%">
 <b>Plaintext:</b>     C      R      Y      P      T      O  
 <b>Plaintext:</b>  3 (C) 18 (R) 25 (Y) 16 (P) 20 (T) 15 (O) 
 <b>Key:</b>        8 (H)  1 (A) 18 (R) 21 (U)  5 (E) 23 (W) 
 <b>Addition:</b>  11 (K) 19 (S) 43 ( ) 37 ( ) 25 (Y) 38 ( )
 <b>Modulo 26:</b> 11 (K) 19 (S) 17 (Q) 11 (K) 25 (Y) 12 (L) 
 <b>Ciphertext:</b>    K      S      Q      K      Y      L </pre>
-                <h4><b>Decoding With a One Time Pad</b></h4>
-                <p><b>The Vigenère Method:</b> Once again, decoding a message using a one time pad is again not different than using a standards keyword. Simply follow the same rules when decoding using the <a href="vigenere.html">Vigenère cipher</a>.</p>
-                <p><b>The Modular Addition Method:</b> When decoding a message encoded with the modular addition, simply follow the same steps as encryption, but this time, subtract the key from the ciphertext. If a number ends up below 1, add 26.</p>
-                <h4><b>Why Is The One Time Pad Special?</b></h4>
-                <p>The One Time Pad is special, since unlike any other cipher in existence, the One Time Pad offers something incredibly unique: <b>absolute guarenteed secrecy</b>. It cannot be broken by any amount of cryptanalysis - no message can ever be intercepted by an enemy, irregardless of time or technology.</p>
-                <p>Some of you may ask, "How does using a One Time Pad ensure total secrecy, especially given that its method of encoding and decoding aren't that incredibly strong?" There are two things that separate a regular key from a One Time Pad key:</p>
-                <ol>
-                    <li>The key is as long as the message. This ensures that the Kaskiski method of breaking Vigenère is ineffective, since no repition occurs.</li>
-                    <li>The key is totally random.</li>
-                </ol>
-                <h4><b>So Why Don't We All Use the One Time Pad?</b></h4>
-                <p></p>
-            </div>
-
-            <!-- here be an explanitory photo -->
-            <div class="col-sm-6" >
-                <h4>Example of a One Time Pad Key</h4>
-                <img src="photos\one time pad.png" style="width:100%">
-            </div>
+            <h4><b>Decoding With a One Time Pad</b></h4>
+            <p><b>The Vigenère Method:</b> Once again, decoding a message using a one time pad is again not different than using a standards keyword. Simply follow the same rules when decoding using the <a href="vigenere.html">Vigenère cipher</a>.</p>
+            <p><b>The Modular Addition Method:</b> When decoding a message encoded with the modular addition, simply follow the same steps as encryption, but this time, subtract the key from the ciphertext. If a number ends up below 1, add 26.</p>
+            <hr>
+            <h3><b>Why Is The One Time Pad Special?</b></h3>
+            <p>The One Time Pad is special, since unlike any other cipher in existence, the One Time Pad offers something incredibly unique: <b>absolute guarenteed secrecy</b>. It cannot be broken by any amount of cryptanalysis - no message can ever be intercepted by an enemy, irregardless of time or technology.</p>
+            <p>Some of you may ask, "How does using a One Time Pad ensure total secrecy, especially given that its method of encoding and decoding aren't that incredibly strong?" There are two things that separate a regular key from a One Time Pad key:</p>
+            <ol>
+                <li>The key is <i>as long as the message</i>. This ensures that the Kaskiski method of breaking Vigenère is ineffective, since no repition occurs.</li>
+                <li>The key is <i>totally random</i>. This means that there are no exploitable patterns created by human nature, but more importantly, it means that any form of Frequency analysis is completely worthless - there would be an equal distribution of characters.</li>
+            </ol>
+            <p>Imagine a 20-letter long message. That means we must generate a key that is 20 characters long. However, due to the randomness of the key, that means each letter could be any of the 26 characters in the alphabet. That means there are 26<sup>20</sup> (ie 19,928,148,895,209,409,152,340,197,376) possible random keys that could be generated. This method of key generation is secure not only because it would take an impossibly long time for any human or computer to brute force every single key, but also in the fact that keys will be generated for <i>other messages</i> of the same length. Let's use our previous example: We have a ciphertext of "KSUKYL". While using our key, that creates the intended message of "CRYPTO", but using different keys, that could easily become "CASTLE" or "BOTTLE". Without context, a cryptanalysist has no way of determining which message was the intended one.</p>
+            <hr>
+            <h3><b>So Why Don't We All Use the One Time Pad?</b></h3>
+            <p>So if using the One Time Pad offers entirely secure communication, why isn't it used everywhere?</p>
+            <ol>
+                <li><b>The Impossibility of Random Keys.</b> For the One Time Pad to work effectively, keys must be truly random; however, pure randomness is incredibly difficult to come across in a deterministic universe. A common idea would be to randomly hit letters on a keyboard, but humans are lazy: Eventually, the random keyboard smashing turns into a controlled pattern of a letter from the left hand to a letter from the right hand, etc. While increidbly pedantic, this still gives a cryptanalyst some vulnerability to exploit. Another option is to use natural processes, such as radioactive decay. However, these methods are often too slow and inefficient to create random keys in an effective manner.</li>
+                <li><b>The Ever-Lasting Problem of Key Distribution.</b> Even if we could generate truly random keys, the method fails to solve another issue: How are the keys going to be distributed? For the One Time Pad to even work, everyone who needs to decipher a message must have the correct key pad, be using the correct key sheet, and recive the pad at the same time as everyone else who needs one. Not to mention, the pad is a physical object; if an enemy got their hands on one, the entire system falls apart.</li>
+                <li><b>History.</b> The One Time Pad was finalized around the early 20th century, just nearing the end of World War I. Even with its merits, the mass coordination needed for the One Time Pad would absolutely break down in the chaotic enviornment of the European trenches. If it was used, hundreds of men would be required just to transport messages and keys to every commander in the field. The One Time Pad would be too unwieldy for real use. The wartime leaders of the World Wars would need ciphers that were hard to break yet simple to implement. The One Time Pad couldn't compete.</li>
+            </ol>
+            <p>However, the One Time Pad has been used in communications that require absolute security between parties. For instance, communications between the Presidents of the United States and Russia are often secured using a One Time Pad. Furthermore, the spread of the internet means that the One Time Pad may possibly become increasingly feasible in the future. So while it remains entirely impractical for common use, it may not be for much longer.</p>
+            <br>
+            <p class="bg-info">An example of an One Time Pad used by the NSA can be found in <a href="resources.html">Resources</a>.</p>
         </div>
         
     </section>
