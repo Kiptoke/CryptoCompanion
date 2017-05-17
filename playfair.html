@@ -74,10 +74,18 @@
                     <li>To encrypt the letters:</li>
                     <ul>
                         <li><b>If the two letters are on the same row:</b> Change each letter in the pair to the one immediately to the right of it, wrapping arond if needed. Take for instance, the PR in the row C R Y P T. We take the two immediately to the right of it. So PR becomes TY.</li>
-                        <li><b>If the two letters are on the same column:</b> Change each letter in the pair to the one immediately below it, wrapping around if needed. Take for instance, the RA in the column R A G M V. We take the two immediately below. So RA becomes AG.
+                        <li><b>If the two letters are on the same column:</b> Change each letter in the pair to the one immediately below it, wrapping around if needed. Take for instance, the RA in the column R A G M V. We take the two immediately below. So RA becomes AG.</li>
+                        <li><b>Otherwise:</b> If the two letters are not on the same column or the same row, then we form a box around the letters, having the letters stand as the corners of the box. To encrypt, we find the letters at the opposing horizontal corner. Take for instance, the TO. That creates a rectangle that surrounds the top two rows. We take the letters on the oopposing horizontal corner. So TO becomes CE.</li>
+                    </ul>
                 </ol>
+                <p>Completing out the rest of the text, CRYPTOLOGY IS COOL becomes RYPTCEUFHR KQ OFFU.</p>
                 <h4><b>Decoding Playfair</b></h4>
-                <p></p>
+                <p>Much like other ciphers, decryption of an encrypted message is relatively simple as we can simply follow the steps backwards to get the plaintext. However, just follow the encryption step backwards:</p>
+                <ul>
+                    <li><b>If the two letters are on the same row:</b> Take the two letters to the left, wrapping if needed</li>
+                    <li><b>If the two letters are on the same column:</b> Take the two letters above, wrapping if needed</li>
+                    <li><b>Otherwise:</b> Form a box with the letters enclosed and find the direct opposite horizontal corner.</li>
+                </ul>
                 <h4><b>Breaking Playfair</b></h4>
                 <p></p>
             </div>
