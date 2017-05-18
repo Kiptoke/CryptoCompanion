@@ -87,7 +87,7 @@
                     <li><b>Otherwise:</b> Form a box with the letters enclosed and find the direct opposite horizontal corner.</li>
                 </ul>
                 <h4><b>Breaking Playfair</b></h4>
-                <p></p>
+                <p>Without a computer, the key length of a Playfair cipher can also be determined by an analysis of repeated pairs of letters - similar to <a href="vigenere.html">Vigenère</a>. Or, theoretically, if one knows the frequency of pairs of letters in the ciphertext language, one can use a form of frequency analysis to possibly break a Playfair cipher. With a computer, a user could do what is called <i>hill climbing</i> as a method of finding the Playfair cipher. This works by having a computer pseudo-evolve a Playfair table. It initially generates a randomized table, and then checks it against the ciphertext; it then incrementally improves the table to create a key that recreates the plaintext or something close to it.</p>
             </div>
 
             <!-- here be an explanitory photo -->
@@ -108,11 +108,11 @@
         <!-- formatting here is bad I dunno how to fix it -->
 
         <pre>
-<b>Example 1:</b> 
-<b>Example 2:</b> 
-<b>Example 3:</b> 
-<b>Example 4:</b> 
-<b>Paragraph:</b> <p></p></pre>
+<b>Example 1:</b> Using the CRYPTO Playfair table, encrypt the message: ATTACK THE HILL AFTER DAWN
+<b>Example 2:</b> Using a Playfair table with the key "APPLE", encrypt the message: AN APPLE A DAY KEEPS THE DOCTOR AWAY
+<b>Example 3:</b> Using the CRYPTO Playfair table, decrypt the message: MOQB FL FBTD BMA IUFYP
+<b>Example 4:</b> Using a Playfair table with the key "LONDON", decrypt the message: QMC SPCMQ ILDNQSLGNB ONTO HADZGDRW"<br>
+<b>Paragraph:</b> Using a Playfair table with the key "CITY", decrypt the paragraph: <p>TY ZTQ ALB DFQA RB YTLFP, AE TGZ CLL TPSQA RB YTLFP, AE TGZ CLG TBF RB VTPGRH, TY ZTQ ALB GNB QN NVVKTONLGUU,<br>TY ZTQ ALB DQUBO UG DLQTDD, YE TGZ CLM MQPBO RB AKYOFEWHTYA, TE TGZ CLG QGTOPH SE MADLC, TY ZTQ ALB QGGZSH RB GIPMLGUU,<br>TY ZTQ ALB OQPYSN RB OUQD, TY ZTQ ALB VTLAFQ RB EFOQCTQ, XB LIG DWFQAYKCSN DFBRQF ZO, TL NCG KQCKCSN DFBRQF ZO,<br>TL TLQF TNN EPCSN KDQFIY CQ LBIZGL, TL TLQF TNN EPCSN KDQFIY CLB QCLFQ ZTA<br>TS ZOUQY, CLD QFQCPE VGZ OP GYQ MDPL ELB QSGQGLI QFQCPE, INCA QRHB QD YAQ HSAPTDQA CZCLPSTYTDP ASZAPELB PK AAQ DFAKF SBTDTWDE,<br>GPS BSPB PS BRQ FIDK, TL ALB OZQDQMCYDIF EFBQFB QB YRHSIPYOPH SHMFY</p></pre>
         
         <div class="panel-group">
             <div class="panel panel-default">
@@ -122,11 +122,11 @@
                     </h4>
                 </div>
                 <div id="collapse1" class="panel-collapse collapse">
-                    <div class="panel-body"><b>Example 1:</b> </div>
-                    <div class="panel-body"><b>Example 2:</b> </div>
-                    <div class="panel-body"><b>Example 3:</b> </div>
-                    <div class="panel-body"><b>Example 4:</b> </div>
-                    <div class="panel-body"><b>Paragraph:</b> </div>
+                    <div class="panel-body"><b>Example 1:</b> ERRETF YKB KFQM OKCAT EBYW</div>
+                    <div class="panel-body"><b>Example 2:</b> EI PLLEB P CPW NHHLR UGP GIHUNQ PVPZY</div>
+                    <div class="panel-body"><b>Example 3:</b> LAND OF HOPE AND GLORY</div>
+                    <div class="panel-body"><b>Example 4:</b> THE RIGHT HONOURABLE LORD PLAYFAIR</div>
+                    <div class="panel-body"><b>Paragraph:</b> IT WAS THE BEST OF TIMES, IT WAS THE WORST OF TIMES, IT WAS THE AGE OF WISDOM, IT WAS THE AGE OF FOOLISHNESS,<br>IT WAS THE EPOCH OF BELIEF, IT WAS THE EPOCH OF INCREDULITY, IT WAS THE SEASON OF LIGHT, IT WAS THE SEASON OF DARKNESS,<br>IT WAS THE SPRING OF HOPE, IT WAS THE WINTER OF DESPAIR, WE HAD EVERYTHING BEFORE US, WE HAD NOTHING BEFORE US,<br>WE WERE ALL GOING DIRECT TO HEAVEN, WE WERE ALL GOING DIRECT THE OTHER WAY<br>IN SHORT, THE PERIOD WAS SO FAR LIKE THE PRESENT PERIOD, THAT SOME OF ITS NOISIEST AUTHORITIES INSISTED ON ITS BEING RECEIVED,<br>FOR GOOD OR FOR EVIL, IN THE SUPERLATIVE DEGREE OF COMPARISON ONLY<br>- <i>Tale of Two Cities</i>, Charles Dickens</div>
                 </div>
             </div>
         </div>
