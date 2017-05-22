@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    
+    <title>Playfair Cipher</title>
+
+    <!-- here be the CSS sheet -->
+    <link href="Crypto CSS Sheet.css" rel="stylesheet" type="text/css">
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+  </head>
+  <body>
+    
+    <!-- Here is the top header -->
+    <header>
+        <img src="photos\logo.png" class="img-rounded" style="width:40%">
+    </header>
+
+    <!-- TESTING: navbar test -->
+
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <ul class="nav navbar-nav">
+                <li><a href="index.html">Home</a></li>
+                <li class="dropdown">
+
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Ciphers
+                    <span class="caret"></span></a>
+
+                    <ul class="dropdown-menu">
+                        <li><a href="atbash.html">Atbash Cipher</a></li>
+                        <li><a href="caesar.html">Caesar Cipher</a></li>
+                        <li><a href="substitution.html">Simple Substitution Cipher</a></li>
+                        <li><a href="vigenere.html">Vigenère Cipher</a></li>
+                        <li><a href="playfair.html">Playfair Cipher</a></li>
+                        <li><a href="ADFGVX.html">ADFGVX Cipher</a></li>
+                        <li><a href="onetimepad.html">The One Time Pad</a></li>
+                    </ul>
+                </li>
+                <li><a href="conversions.html">Conversions</a></li>
+                <li><a href="cybersecurity.html">Cybersecurity</a></li>
+                <li><a href="resources.html">Resources</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- here be the main text -->
+    <section>
+        <h1>Playfair</h1>
+        <hr>
+        <!-- here be text -->
+        <div class="row">
+            <div class="col-sm-6">
+                <p>Unlike many of the other ciphers covered in this site, the <b>Playfair Cipher</b> uses a unique and puzzle-like method of encryption. It was developed by Sir Charles Wheatstone in 1854, but is the namesake of Lord Playfair, who popularized its use. It takes advantage of a 5 x 5 grid of letters and pairs of letters when encrypting/decrypting. Playfair was used by British forces in the Zulu Wars, World War I, and World War II. It was chosen as the central British cipher to use due to its relative simplicity: It's easy to teach and it only requires paper and pencil. However, in the heat of battle, simple subsitution ciphers and code-words became more commonplace in the trenches.</p>
+                <hr>
+                <h4><b>Encoding Playfair</b></h4>
+                <p>Playfair messages are rather easy to explain and describe. First, to create a grid, use a word as the key. For our case, we are going to use the keyword "CRYPTO". Begin to build a 5 x 5 grid with the individual letters of the keyword as the first few letters. In a Playfair key grid, every letter only shows up once. Luckily, we don't have any repeated letters in our key, so we can add CRYPTO as is. If we had a keyword with repeated letters, such as "HELLO", our grid would begin with the letters H E L O. After that, finish the grid with the rest of the alphabet, remembering to skip letters that have already been used in the keyword.</p>
+                <p class="bg-info">You may have noticed that a 5 x 5 grid would only prodcuce 25 spaces for letters, but there are 26 letters in the alphabet. In the Playfair cipher, we essentially combine I and J into one letter. For simplicity, we will be showing this combination as just "I". But remember that it represents both I and J.</p>
+                <p>From here, the following steps can be taken:</p>
+                <ol>
+                    <li>Divide your plaintext into pairs of letters. For demonstration purposes, we will be using the plaintext "PROGRAMMING".</li>
+                    <br>
+                    <pre>PR OG RA MM IN G</pre>
+                    <li>For Playfair to work properly, we cannot have pairs of letters which are the same letter. So for the MM in PROGRAMMING, we divide the two Ms by an X. Convinently, this fills out every space so that we only have pairs of letters. If we still had singular letters, we would simply add an X to complete the pair. Don't worry, the recipient of the message should be able to figure out which Xs are extraneous from context.</li>
+                    <br>
+                    <pre>PR OG RA MX MI NG</pre>
+                    <li>To encrypt the letters:</li>
+                    <ul>
+                        <li><b>If the two letters are on the same row:</b> Change each letter in the pair to the one immediately to the right of it, wrapping arond if needed. Take for instance, the PR in the row C R Y P T. We take the two immediately to the right of it. So PR becomes TY.</li>
+                        <li><b>If the two letters are on the same column:</b> Change each letter in the pair to the one immediately below it, wrapping around if needed. Take for instance, the RA in the column R A G M V. We take the two immediately below. So RA becomes AG.</li>
+                        <li><b>Otherwise:</b> If the two letters are not on the same column or the same row, then we form a box around the letters, having the letters stand as the corners of the box. To encrypt, we find the letters at the opposing horizontal corner. Take for instance, the TO. That creates a rectangle that surrounds the top two rows. We take the letters on the oopposing horizontal corner. So TO becomes CE.</li>
+                    </ul>
+                </ol>
+                <p>Completing out the rest of the text, CRYPTOLOGY IS COOL becomes RYPTCEUFHR KQ OFFU.</p>
+                <h4><b>Decoding Playfair</b></h4>
+                <p>Much like other ciphers, decryption of an encrypted message is relatively simple as we can simply follow the steps backwards to get the plaintext. However, just follow the encryption step backwards:</p>
+                <ul>
+                    <li><b>If the two letters are on the same row:</b> Take the two letters to the left, wrapping if needed</li>
+                    <li><b>If the two letters are on the same column:</b> Take the two letters above, wrapping if needed</li>
+                    <li><b>Otherwise:</b> Form a box with the letters enclosed and find the direct opposite horizontal corner.</li>
+                </ul>
+                <h4><b>Breaking Playfair</b></h4>
+                <p>Without a computer, the key length of a Playfair cipher can also be determined by an analysis of repeated pairs of letters - similar to <a href="vigenere.html">Vigenère</a>. Or, theoretically, if one knows the frequency of pairs of letters in the ciphertext language, one can use a form of frequency analysis to possibly break a Playfair cipher. With a computer, a user could do what is called <i>hill climbing</i> as a method of finding the Playfair cipher. This works by having a computer pseudo-evolve a Playfair table. It initially generates a randomized table, and then checks it against the ciphertext; it then incrementally improves the table to create a key that recreates the plaintext or something close to it.</p>
+            </div>
+
+            <!-- here be an explanitory photo -->
+            <div class="col-sm-6" >
+                <h4>Playfair Table (Keyword: CRYPTO)</h4>
+                <pre>C R Y P T<br>O A B D E<br>F G H I K<br>L M N Q S<br>U V W X Z</pre>
+                <br>
+                <h4>Playfair Example</h4>
+                <pre><b>Plaintext</b>:  CR YP TO LO GY IS CO OL<br><b>Ciphertext</b>: RY PT CE UF HR KQ OF FU</pre>
+            </div>
+        </div>
+
+        <!-- here be some fun examples -->
+
+        <hr>
+        <h3>Practice with Playfair</h3>
+
+        <!-- formatting here is bad I dunno how to fix it -->
+
+        <pre>
+<b>Example 1:</b> Using the CRYPTO Playfair table, encrypt the message: ATTACK THE HILL AFTER DAWN
+<b>Example 2:</b> Using a Playfair table with the key "APPLE", encrypt the message: AN APPLE A DAY KEEPS THE DOCTOR AWAY
+<b>Example 3:</b> Using the CRYPTO Playfair table, decrypt the message: MOQB FL FBTD BMA IUFYP
+<b>Example 4:</b> Using a Playfair table with the key "LONDON", decrypt the message: QMC SPCMQ ILDNQSLGNB ONTO HADZGDRW"<br>
+<b>Paragraph:</b> Using a Playfair table with the key "CITY", decrypt the paragraph: <p>TY ZTQ ALB DFQA RB YTLFP, AE TGZ CLL TPSQA RB YTLFP, AE TGZ CLG TBF RB VTPGRH, TY ZTQ ALB GNB QN NVVKTONLGUU,<br>TY ZTQ ALB DQUBO UG DLQTDD, YE TGZ CLM MQPBO RB AKYOFEWHTYA, TE TGZ CLG QGTOPH SE MADLC, TY ZTQ ALB QGGZSH RB GIPMLGUU,<br>TY ZTQ ALB OQPYSN RB OUQD, TY ZTQ ALB VTLAFQ RB EFOQCTQ, XB LIG DWFQAYKCSN DFBRQF ZO, TL NCG KQCKCSN DFBRQF ZO,<br>TL TLQF TNN EPCSN KDQFIY CQ LBIZGL, TL TLQF TNN EPCSN KDQFIY CLB QCLFQ ZTA<br>TS ZOUQY, CLD QFQCPE VGZ OP GYQ MDPL ELB QSGQGLI QFQCPE, INCA QRHB QD YAQ HSAPTDQA CZCLPSTYTDP ASZAPELB PK AAQ DFAKF SBTDTWDE,<br>GPS BSPB PS BRQ FIDK, TL ALB OZQDQMCYDIF EFBQFB QB YRHSIPYOPH SHMFY</p></pre>
+        
+        <div class="panel-group">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" href="#collapse1">Click Here for the Answers</a>
+                    </h4>
+                </div>
+                <div id="collapse1" class="panel-collapse collapse">
+                    <div class="panel-body"><b>Example 1:</b> ERRETF YKB KFQM OKCAT EBYW</div>
+                    <div class="panel-body"><b>Example 2:</b> EI PLLEB P CPW NHHLR UGP GIHUNQ PVPZY</div>
+                    <div class="panel-body"><b>Example 3:</b> LAND OF HOPE AND GLORY</div>
+                    <div class="panel-body"><b>Example 4:</b> THE RIGHT HONOURABLE LORD PLAYFAIR</div>
+                    <div class="panel-body"><b>Paragraph:</b> IT WAS THE BEST OF TIMES, IT WAS THE WORST OF TIMES, IT WAS THE AGE OF WISDOM, IT WAS THE AGE OF FOOLISHNESS,<br>IT WAS THE EPOCH OF BELIEF, IT WAS THE EPOCH OF INCREDULITY, IT WAS THE SEASON OF LIGHT, IT WAS THE SEASON OF DARKNESS,<br>IT WAS THE SPRING OF HOPE, IT WAS THE WINTER OF DESPAIR, WE HAD EVERYTHING BEFORE US, WE HAD NOTHING BEFORE US,<br>WE WERE ALL GOING DIRECT TO HEAVEN, WE WERE ALL GOING DIRECT THE OTHER WAY<br>IN SHORT, THE PERIOD WAS SO FAR LIKE THE PRESENT PERIOD, THAT SOME OF ITS NOISIEST AUTHORITIES INSISTED ON ITS BEING RECEIVED,<br>FOR GOOD OR FOR EVIL, IN THE SUPERLATIVE DEGREE OF COMPARISON ONLY<br>- <i>Tale of Two Cities</i>, Charles Dickens</div>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <h3>Python Application of Playfair</h3>
+        
+        <p style="text-align:center" class="bg-info">This application to come soon</p>
+    </section>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js" download></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+  </body>
+</html>

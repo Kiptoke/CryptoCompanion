@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    
+    <title>ADFGVX Cipher</title>
+
+    <!-- here be the CSS sheet -->
+    <link href="Crypto CSS Sheet.css" rel="stylesheet" type="text/css">
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+  </head>
+  <body>
+    
+    <!-- Here is the top header -->
+    <header>
+        <img src="photos\logo.png" class="img-rounded" style="width:40%">
+    </header>
+
+    <!-- TESTING: navbar test -->
+
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <ul class="nav navbar-nav">
+                <li><a href="index.html">Home</a></li>
+                <li class="dropdown">
+
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Ciphers
+                    <span class="caret"></span></a>
+
+                    <ul class="dropdown-menu">
+                        <li><a href="atbash.html">Atbash Cipher</a></li>
+                        <li><a href="caesar.html">Caesar Cipher</a></li>
+                        <li><a href="substitution.html">Simple Substitution Cipher</a></li>
+                        <li><a href="vigenere.html">Vigenère Cipher</a></li>
+                        <li><a href="playfair.html">Playfair Cipher</a></li>
+                        <li><a href="ADFGVX.html">ADFGVX Cipher</a></li>
+                        <li><a href="onetimepad.html">The One Time Pad</a></li>
+                    </ul>
+                </li>
+                <li><a href="conversions.html">Conversions</a></li>
+                <li><a href="cybersecurity.html">Cybersecurity</a></li>
+                <li><a href="resources.html">Resources</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- here be the main text -->
+    <section>
+        <h1>ADFGVX</h1>
+        <hr>
+        <!-- here be text -->
+        <div class="row">
+            <div class="col-sm-6">
+                <p>The <b>ADFGVX Cipher</b> is another cipher that has its central encryption element as a table, and manipulates that table as its enciphering mechanism. One of its specialties is that it is one of few ciphers that allows for numbers to also be enciphered. It was an extension of a previous cipher called ADFGX that could only encode letters in the alphabet. With the extra V, we can now encode all letters and the numbers from 0-9. It was the central cipher of the German Army during World War I. Howvever, it was broken very shortly after its introduction into the German military. The cipher is called the ADFGVX due to the letters that the cipher eventually encrypts into. These letters are special since they are not similar to each other when transmitted through Morse code, and thus had a lower chance of having a message relayed improperly.</p>
+                <hr>
+                <h4><b>Encoding ADFGVX</b></h4>
+                <p>Encoding ADFGVX begins with the creation of a randomized 6x6 keygrid. This keygrid should include every letter plus the numbers from 0-9. Since there are 26 letters and 10 digits, it should perfectly fit the 36 spaces. For our example, we will be using the keygrid on the ADFGVX table to the right.</p>
+                <p>Begin the enciphering process by finding the first letter of the ciphertext in the 6x6 keygrid. Then, take the letters of its row and then column. Repeat this step for all letters and numbers in the cipher. Every letter or number should now be represented by row-column pairs.</p>
+                <pre><b>Plaintext</b>:    CHARGE AT 0600<br><b>Letter Pairs</b>: FA AF FD XD DV DA FD DG FX GA FX FX</pre>
+                <p>Once that has been accomplished, we can now use our keyword. For our example, the keyword will be "VERDUN". Each of the letters in the keyword will become a special "column". Write the letters in a horizontal fashion (left-to-right) underneath the keyword, wrapping around once you reach the end of it. For simplicity, it may be easier to find keys that are a divisor of the length of the message; however, it does not matter if some columns are shorter than others.</p>
+                <pre><b>V E R D U N</b><br>F A A F F D<br>X D D V D A<br>F D D G F X<br>G A F X F X</pre>
+                <p>Now, while this seems rather complicated already, realize that what we've accomplished so far is only a simple subsitution cipher. With a long enough text, frequency analysis is all that is required to break it. Therefore, we do a special transposition of the keyword columns. We arrange them alphabetically, taking the columns of the row-column pairs with us.</p>
+                <pre><b>D E N R U V</b><br>F A D A F F<br>V D A D D X<br>G D X D F F<br>X A X F F G</pre>
+                <p>From here, the ciphertext is simply the leftover <b>columns</b>, not rows, of the completed transposition.</p>
+                <pre><b>Ciphertext</b>: FVGX ADDA DAXX ADDF FDFF FXFG</pre>
+                <h4><b>Decoding ADFGVX</b></h4>
+                <p>Decoding ADFGVX when you know the keyword is simply a matter of rearranging the columns and then switching the column-row pairs back into their letters using the 6x6 keygrid. If the ciphertext is not divided into its columns, take the length of the ciphertext, divide that by the length of the keyword, and then divide the ciphertext into that amount of equal sized groups.</p>
+                <h4><b>Breaking ADFGVX</b></h4>
+                <p>ADFGVX was broken rather quickly after its introduction late into World War I by the German military, it was broken by Lieutenant Georges Painvin in 1918. Painvin based his method of decoding based off rather intuitive knowledge of German encryption and a modified form of frequency analysis. Painvin figured out that during periods of high traffic, plenty of source material would come about that Painvin could analyze for repeated phrases or patterns. Since a day's messages in the trenches were likely encoded using the same keygrid and perhaps even the same keyword due to lax standards, Painvin knew that common phrases, such as "French" or "trench" would be encoded in the exact same way. This was his central method of breaking the ADFGVX cipher. He also used a quirk about how ADFGVX enciphers its text to derive how long a possible keyword may be.</p>
+            </div>
+
+            <!-- here be an explanitory photo -->
+            <div class="col-sm-6" >
+                <h4>ADFGVX Table</h4>
+                <pre>
+<b>    A D F G V X</b><br>
+<b>A</b>   Z 8 H V 7 X
+<b>D</b>   E Q L T G P
+<b>F</b>   C A O W S 0
+<b>G</b>   6 K 4 M J I
+<b>V</b>   1 Y 2 F N B
+<b>X</b>   U R D 5 9 3
+                </pre>
+                <br>
+                <h4>ADFGVX Example</h4>
+                <pre><b>Plaintext</b>:  CRYPTOLOGY IS COOL<br><b>Key</b>: CODE<br><b>Ciphertext</b>: FVDDDGFF XDFFVFFD DXFFDVFF ADGFVXAF</pre>
+            </div>
+        </div>
+
+        <!-- here be some fun examples -->
+
+        <hr>
+        <h3>Practice with ADFGVX</h3>
+
+        <!-- formatting here is bad I dunno how to fix it -->
+
+        <pre>Every example makes use of the example keygrid.<br>
+<b>Example 1:</b> Encipher THE ATTACK BEGINS AT DAWN using the keyword "TRENCH"
+<b>Example 2:</b> Encipher IN 1492 COLUMBUS SAILED THE OCEAN BLUE using the keyword "BOAT"
+<b>Example 3:</b> Decipher GDFVVFVFAXFDFFVXGADXAAXGXGFGAXDGFXXXDAXXAXDFFGVDXAAXVFXAGGXXDGVFGDDDAAXGFDVGXXAADFDFFDFAXADDGVGDFVDA using the keyword "TELEVISION"
+<b>Example 4:</b> Decipher XVXFFGAFAFAXAGVAFGGFDFFDFFDAFVFGFDDDDXDVXFAFFGADFDXFGVGAGDAFFVGXFAFADDXD using the keyword "GEMS"
+<b>Paragraph:</b> Decipher this paragraph with the keyword "YPRES": <p>VFFFXXGDXDXFADVDDFVFVFFGDXXFDG<br>GFDDDFGDDDDVXVDFADDGFDAVFAXDVXG<br>DVDFGVFXFAAAFAFFFGDDFDFAXVDDAF<br>GVDXAFGVDFFDADFXAVFAFVFXDGFDAD<br>XVFDGVFXVFFVFAGXFDDFFDAVFFDDFX<br>GVXGVVAFFXDXFXVDGVDDVDFAXDADGD<br>ADAFVXGXGFGGADAVXAVDAXVGFFAFVV<br>GFDDAXGDAVXFXGGVAVAFFFXFFVGDGF<br>FDDFDDDFDXFDVVFGGDDFXVDDVDVDVX<br>AFFGGDVDF</p></pre>
+        
+        <div class="panel-group">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" href="#collapse1">Click Here for the Answers</a>
+                    </h4>
+                </div>
+                <div id="collapse1" class="panel-collapse collapse">
+                    <div class="panel-body"><b>Example 1:</b> DDGDFXVAADFDVDFAAGDVVFVXFGAAVGGXGDDXXDDXDFFVGFFA</div>
+                    <div class="panel-body"><b>Example 2:</b> VGVFXVFFDXAFDVDDGVXFDGXFGDDDFFVXXAVAFGAVXAGAADXAVFFFAXVDFFFFAVFA</div>
+                    <div class="panel-body"><b>Example 3:</b> THERE ARE MILLIONS OF POSSIBILITIES FOR THE FUTURE</div>
+                    <div class="panel-body"><b>Example 4:</b> ITS UP TO YOU TO CHOSE WHICH BECOMES REALITY</div>
+                    <div class="panel-body"><b>Paragraph:</b> IN FLANDERS FIELDS THE POPPIES BLOW<br>BETWEEN THE CROSSES ROW ON ROW<br>THAT MARK OUR PLACE AND IN THE SKY<br>THE LARKS STILL BRAVELY SINGING FLY<br>SCARCE HEARD AMID THE GUNS BELOW<br>- <i>In Flanders Fields</i>, a poem by John McCrae</div>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <h3>Python Application of ADFGVX</h3>
+        
+        <p style="text-align:center" class="bg-info">This application to come soon</p>
+    </section>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js" download></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+  </body>
+</html>
